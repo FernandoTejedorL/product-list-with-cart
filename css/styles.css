@@ -1,5 +1,25 @@
 :root {
-  --bg-color: blue;
+  --red: #c73b0f;
+  --rose900: #260f08;
+  --rose500: #87635a;
+  --rose400: #ad8a85;
+  --rose300: #caafa7;
+  --rose100: #f5eeec;
+  --rose50: #fcf8f6;
+  --green: #1ea575;
+  --black: #000;
+  --white: #fff;
+
+  --txt-size-xl: 40px;
+  --txt-sixe-l: 24px;
+  --txt-size-m: 16px;
+  --txt-size-s: 14px;
+
+  --fw-bold: 700;
+  --fw-semibold: 600;
+  --fw-regular: 400;
+
+  --line-height: 120%;
 }
 
 * {
@@ -29,5 +49,224 @@ ul {
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+.header {
+  font-size: var(--txt-size-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--line-height);
+  margin: 140px 0 32px 10px;
+}
+
+.buttons-top {
+  display: flex;
+  width: 268px;
+  height: 34px;
+  justify-content: space-between;
+  margin-left: 14px;
+}
+
+@media screen and (width>768px) {
+  .buttons-top {
+    width: 276px;
+  }
+}
+
+@media screen and (width>1024px) {
+  .buttons-top {
+    width: 347px;
+  }
+}
+
+.button-top {
+  width: 77px;
+  height: 34px;
+  border-radius: 20px;
+  border: 1px solid var(--rose400);
+  font-size: var(--txt-size-s);
+  font-weight: var(--fw-semibold);
+}
+
+@media screen and (width>768px) {
+  .button-top {
+    width: 79px;
+  }
+}
+
+@media screen and (width>1024px) {
+  .button-top {
+    width: 100px;
+  }
+}
+
+.selected {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.unselected {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/*Dishes*/
+
+.dishes-container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  margin-top: 26px;
+  padding-inline: 24px;
+  gap: 24px;
+}
+
+@media screen and (width>768px) {
+  .dishes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 214px);
+    gap: 24px;
+  }
+}
+
+@media screen and (width>1024px) {
+  .dishes-container {
+    width: 800px;
+    grid-template-columns: repeat(3, 251px);
+    gap: 24px;
+  }
+}
+
+.each-dish {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+  height: 319px;
+}
+
+@media screen and (width>1024px) {
+  .each-dish {
+    height: 347px;
+  }
+}
+
+.img-div {
+  position: relative;
+}
+
+.dish-pic {
+  width: 327px;
+  height: 212px;
+  border-radius: 10px;
+}
+
+@media screen and (width>768px) {
+  .dish-pic {
+    width: 212px;
+  }
+}
+
+@media screen and (width>1024px) {
+  .dish-pic {
+    width: 250px;
+    height: 240px;
+  }
+}
+
+.add-to-cart {
+  position: absolute;
+  top: 190px;
+  left: 83.5px;
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+  height: 44px;
+  border: 1px solid var(--rose400);
+  padding: 12px 28px;
+  font-size: var(--txt-size-s);
+  font-weight: var(--fw-semibold);
+  padding: 12.5px 28px;
+  border-radius: 20px;
+  background-color: var(--white);
+}
+
+@media screen and (width>768px) {
+  .add-to-cart {
+    left: 26.67px;
+  }
+}
+
+@media screen and (width>1024px) {
+  .add-to-cart {
+    top: 218px;
+    left: 45.33px;
+  }
+}
+
+.hidden-add-to-cart {
+  position: absolute;
+  top: 190px;
+  left: 83.5px;
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+  height: 44px;
+  border: 1px solid var(--rose400);
+  padding: 12px 12px;
+  font-size: var(--txt-size-s);
+  font-weight: var(--fw-semibold);
+  color: var(--white);
+  padding: 12.5px 12px;
+  border-radius: 20px;
+  background-color: var(--red);
+  display: none;
+}
+
+@media screen and (width>768px) {
+  .hidden-add-to-cart {
+    left: 26.67px;
+  }
+}
+
+.decrease {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+  background-image: url(../assets/images/icon-decrement-quantity.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.increase {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+  background-image: url(../assets/images/icon-increment-quantity.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.name-and-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category {
+  font-size: var(--txt-size-s);
+  font-weight: var(--fw-regular);
+  color: var(--rose500);
+}
+.dish-name {
+  font-size: var(--txt-size-m);
+  font-weight: var(--fw-semibold);
+  color: var(--rose900);
+}
+.price {
+  font-size: var(--txt-size-m);
+  font-weight: var(--fw-semibold);
+  color: var(--red);
 }

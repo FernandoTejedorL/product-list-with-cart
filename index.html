@@ -4,9 +4,358 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Product List</title>
   </head>
   <body>
+    <main>
+      <h1 class="header">Desserts</h1>
+      <div class="buttons-top">
+        <button class="button-top selected">Default</button>
+        <button class="button-top unselected">Name</button>
+        <button class="button-top unselected">Price</button>
+      </div>
+      <div class="dishes-container">
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-waffle-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-waffle-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-waffle-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-waffle-mobile.jpg"
+                alt="waffle"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Waffle</span>
+            <span class="dish-name">Waffle with Berries</span>
+            <span class="price">$6.50</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-creme-brulee-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-creme-brulee-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-creme-brulee-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-creme-brulee-mobile.jpg"
+                alt="creme-brulee"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Crème Brûlée</span>
+            <span class="dish-name">Vanilla Bean Crème Brûlée</span>
+            <span class="price">$7.00</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-macaron-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-macaron-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-macaron-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-macaron-mobile.jpg"
+                alt="macaron"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Macaron</span>
+            <span class="dish-name">Macaron Mix of Five</span>
+            <span class="price">$8.00</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-tiramisu-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-tiramisu-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-tiramisu-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-tiramisu-mobile.jpg"
+                alt="tiramisu"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Tiramisu</span>
+            <span class="dish-name">Classic Tiramisu</span>
+            <span class="price">$5.50</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-baklava-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-baklava-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-baklava-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-baklava-mobile.jpg"
+                alt="baklava"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Baklava</span>
+            <span class="dish-name">Pistachio Baklava</span>
+            <span class="price">$4.00</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-meringue-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-meringue-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-meringue-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-meringue-mobile.jpg"
+                alt="meringue"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Pie</span>
+            <span class="dish-name">Lemon Meringue Pie</span>
+            <span class="price">$5.00</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-cake-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-cake-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-cake-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-cake-mobile.jpg"
+                alt="cake"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Cake</span>
+            <span class="dish-name">Red Velvet Cake</span>
+            <span class="price">$4.50</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-brownie-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-brownie-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-brownie-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-brownie-mobile.jpg"
+                alt="brownie"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Brownie</span>
+            <span class="dish-name">Salted Caramel Brownie</span>
+            <span class="price">$5.50</span>
+          </div>
+        </div>
+        <div class="each-dish">
+          <div class="img-div">
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/image-panna-cotta-desktop.jpg"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./assets/images/image-panna-cotta-tablet.jpg"
+              />
+              <source
+                media="(min-width: 360px)"
+                srcset="./assets/images/image-panna-cotta-mobile.jpg"
+              />
+              <img
+                class="dish-pic"
+                src="./assets/images/image-panna-cotta-mobile.jpg"
+                alt="panna-cotta"
+              />
+            </picture>
+            <button class="add-to-cart" data-name="" data-price="">
+              <img src="./assets/images/icon-add-to-cart.svg" alt="cart-ico" />
+              <span>Add to Cart</span>
+            </button>
+            <div class="hidden-add-to-cart">
+              <div class="decrease"></div>
+              <span>0</span>
+              <div class="increase"></div>
+            </div>
+          </div>
+          <div class="name-and-price">
+            <span class="category">Panna Cotta</span>
+            <span class="dish-name">Vanilla Panna Cotta</span>
+            <span class="price">$6.50</span>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="./js/scripts.js"></script>
   </body>
 </html>
