@@ -21,7 +21,6 @@ newOrderElement.addEventListener('click', hideModal);
 //mostrar botones de cantidad
 const showBuyQuantity = (event) => {
   event.target.nextElementSibling.classList.remove('remove-hidden-add-to-cart');
-  console.dir(event.target);
   event.target.nextElementSibling.children[1].textContent = 0;
 };
 allAddToCartElements.forEach((addToCart) => {
