@@ -31,8 +31,8 @@ allAddToCartElements.forEach((addToCart) => {
 
 //aumentar cantidad
 //añadir al carro
-let itemCount = [];
 const increaseAmount = (event) => {
+  let itemCount = [];
   event.target.previousElementSibling.textContent =
     Number(event.target.previousElementSibling.textContent) + 1;
   emptyCartElement.classList.add('empty-cart-hidden');
@@ -75,10 +75,11 @@ const increaseAmount = (event) => {
     fragment.append(itemOrderedAndPrice);
     toAppendInCartElement.append(fragment);
   } else if (itemCount.length > 1) {
-    console.dir(toAppendInCartElement.children); //(
+    // console.dir(toAppendInCartElement.children); //(
     //      event.target.parentElement.parentElement.nextElementSibling.children[1]
     //        .dataset.dish
     //    ).children[0].children[1].children[0].textContent = itemCount.length;
+    return;
   }
 };
 allIncreaseElements.forEach((increaseElement) => {
