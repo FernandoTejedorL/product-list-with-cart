@@ -28,6 +28,8 @@ const insertInCart = (event) => {
   return cartContent;
 };
 
+//incrementar cantidad y editar contador
+
 const incrementQuantity = (event) => {
   let newQuantity = 0;
   const name = event.target.dataset.name;
@@ -42,9 +44,13 @@ const incrementQuantity = (event) => {
   return cartContent;
 };
 
+//Eliminar del carro
+
 const removeFromCart = (name) => {
   cartContent = cartContent.filter((product) => product.name !== name);
 };
+
+// Disminuir cantidad
 
 const decrementQuantity = (event) => {
   let newQuantity = 0;
@@ -67,6 +73,8 @@ const decrementQuantity = (event) => {
   return cartContent;
 };
 
+//actualizar el total de cantidades para el carrito
+
 const updateTotal = () => {
   const totalUpdated = cartContent.reduce(
     (acc, product) => product.quantity + acc,
@@ -74,6 +82,8 @@ const updateTotal = () => {
   );
   totalQuantityElement.textContent = totalUpdated;
 };
+
+//actualizar la pasta total para el carrito y el modal
 
 const updateTotalAmount = () => {
   const totalAmountUpdated = cartContent.reduce(
@@ -83,6 +93,8 @@ const updateTotalAmount = () => {
   totalAmountElement.textContent = totalAmountUpdated;
   finalPriceElement.textContent = totalAmountUpdated;
 };
+
+//pintar en el carrito
 
 const printContent = (array) => {
   cartContent.forEach((product) => {
@@ -115,6 +127,8 @@ const printContent = (array) => {
   });
 };
 
+//pintar en el modal
+
 const printContentInOrder = (array) => {
   cartContent.forEach((product) => {
     const fragment = document.createDocumentFragment();
@@ -145,6 +159,8 @@ const printContentInOrder = (array) => {
     toAppendInOrderElement.append(fragment);
   });
 };
+
+//Función para añadir
 
 const mainClick = (event) => {
   const type = event.target.dataset.type;
@@ -184,32 +200,3 @@ const hideModal = (event) => {
   modalElement.classList.add('hide-modal');
 };
 newOrderElement.addEventListener('click', hideModal);
-
-// const addProductToCart = (event) => {
-//   const fragment = document.createDocumentFragment();
-//   const itemOrderedAndPrice = document.createElement('div');
-//   itemOrderedAndPrice.classList.add('item-ordered-and-prices');
-//   const unitaryItem = document.createElement('div');
-//   unitaryItem.classList.add('unitary-item');
-//   const itemOrderedTitle = document.createElement('span');
-//   itemOrderedTitle.classList.add('item-ordered-title');
-//   itemOrderedTitle.textContent = event.target.dataset.name;
-//   const amountAndPrice = document.createElement('div');
-//   amountAndPrice.classList.add('amount-and-price');
-//   const amount = document.createElement('span');
-//   amount.classList.add('amount');
-//   amount.textContent = '1x';
-//   const unitaryPrice = document.createElement('span');
-//   unitaryPrice.classList.add('unitary-price');
-//   unitaryPrice.textContent = '@$' + event.target.dataset.price;
-//   const itemCountPrice = document.createElement('span');
-//   itemCountPrice.classList.add('price-per-product');
-//   itemCountPrice.textContent = '$' + event.target.dataset.price;
-//   const deleteItem = document.createElement('div');
-//   deleteItem.classList.add('delete-cart');
-//   amountAndPrice.append(amount, unitaryPrice, itemCountPrice);
-//   unitaryItem.append(itemOrderedTitle, amountAndPrice);
-//   itemOrderedAndPrice.append(unitaryItem, deleteItem);
-//   fragment.append(itemOrderedAndPrice);
-//   toAppendInCartElement.append(fragment);
-// };
