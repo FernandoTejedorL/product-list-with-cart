@@ -20,7 +20,7 @@
         <button class="button-top unselected">Name</button>
         <button class="button-top unselected">Price</button>
       </div>
-      <div class="dishes-and-cart">
+      <div id="products" class="dishes-and-cart">
         <div class="dishes-container">
           <div class="each-dish">
             <div class="img-div">
@@ -43,7 +43,11 @@
                   alt="waffle"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Waffle with Berries"
+                data-price="6.50"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -52,9 +56,9 @@
                 <span class="pointer-none">Add to Cart</span>
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
-                <div class="decrease"></div>
-                <span>0</span>
-                <div class="increase"></div>
+                <div data-name="Waffle with Berries" class="decrease"></div>
+                <span>1</span>
+                <div data-name="Waffle with Berries" class="increase"></div>
               </div>
             </div>
             <div class="name-and-price">
@@ -88,7 +92,11 @@
                   alt="creme-brulee"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Vanilla Bean Crème Brûlée"
+                data-price="7.00"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -98,7 +106,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -133,7 +141,11 @@
                   alt="macaron"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Macaron Mix of Five"
+                data-price="8.00"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -143,7 +155,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -178,7 +190,11 @@
                   alt="tiramisu"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Classic Tiramisu"
+                data-price="5.50"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -188,7 +204,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -223,7 +239,11 @@
                   alt="baklava"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Pistachio Baklava"
+                data-price="4.00"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -233,7 +253,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -268,7 +288,11 @@
                   alt="meringue"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Lemon Meringue Pie"
+                data-price="5.00"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -278,7 +302,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -313,7 +337,11 @@
                   alt="cake"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Red Velvet Cake"
+                data-price="4.50"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -323,7 +351,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -356,7 +384,11 @@
                   alt="brownie"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Salted Caramel Brownie"
+                data-price="5.50"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -366,7 +398,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
@@ -401,7 +433,11 @@
                   alt="panna-cotta"
                 />
               </picture>
-              <button class="add-to-cart" data-name="" data-price="">
+              <button
+                class="add-to-cart"
+                data-name="Vanilla Panna Cotta"
+                data-price="6.50"
+              >
                 <img
                   class="pointer-none"
                   src="./assets/images/icon-add-to-cart.svg"
@@ -411,7 +447,7 @@
               </button>
               <div class="hidden-add-to-cart remove-hidden-add-to-cart">
                 <div class="decrease"></div>
-                <span>0</span>
+                <span>1</span>
                 <div class="increase"></div>
               </div>
             </div>
