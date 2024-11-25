@@ -8,6 +8,170 @@ const allIncreaseElements = document.querySelectorAll('.increase');
 const allDecreaseElements = document.querySelectorAll('.decrease');
 const toAppendInCartElement = document.getElementById('to-add-in-cart');
 const emptyCartElement = document.getElementById('empty-cart');
+const totalQuantityElement = document.getElementById('total-quantity');
+const totalAmountElement = document.getElementById('total-amount');
+const toAppendInOrderElement = document.getElementById('to-add-in-order');
+const finalPriceElement = document.getElementById('final-price');
+
+//añadir al carro
+
+let cartContent = [];
+
+const insertInCart = (event) => {
+  event.target.nextElementSibling.classList.remove('remove-hidden-add-to-cart');
+  const cartItem = {
+    name: event.target.dataset.name,
+    price: event.target.dataset.price,
+    quantity: 1,
+  };
+  cartContent.push(cartItem);
+  return cartContent;
+};
+
+const incrementQuantity = (event) => {
+  let newQuantity = 0;
+  const name = event.target.dataset.name;
+  cartContent = cartContent.map((product) => {
+    if (product.name === name) {
+      product.quantity++;
+    }
+    newQuantity = product.quantity;
+    event.target.previousElementSibling.textContent = newQuantity;
+    return product;
+  });
+  return cartContent;
+};
+
+const removeFromCart = (name) => {
+  cartContent = cartContent.filter((product) => product.name !== name);
+};
+
+const decrementQuantity = (event) => {
+  let newQuantity = 0;
+  const name = event.target.dataset.name;
+  cartContent = cartContent.map((product) => {
+    if (product.name === name) {
+      product.quantity--;
+      newQuantity = product.quantity;
+      event.target.nextElementSibling.textContent = newQuantity;
+    }
+    if (product.quantity === 0) {
+      event.target.parentElement.classList.add('remove-hidden-add-to-cart');
+      event.target.nextElementSibling.textContent = newQuantity + 1;
+    }
+    return product;
+  });
+  cartContent = cartContent.filter((element) => {
+    return element.quantity !== 0;
+  });
+  return cartContent;
+};
+
+const updateTotal = () => {
+  const totalUpdated = cartContent.reduce(
+    (acc, product) => product.quantity + acc,
+    0
+  );
+  totalQuantityElement.textContent = totalUpdated;
+};
+
+const updateTotalAmount = () => {
+  const totalAmountUpdated = cartContent.reduce(
+    (acc, product) => product.quantity * product.price + acc,
+    0
+  );
+  totalAmountElement.textContent = totalAmountUpdated;
+  finalPriceElement.textContent = totalAmountUpdated;
+};
+
+const printContent = (array) => {
+  cartContent.forEach((product) => {
+    const fragment = document.createDocumentFragment();
+    const itemOrderedAndPrice = document.createElement('div');
+    itemOrderedAndPrice.classList.add('item-ordered-and-prices');
+    const unitaryItem = document.createElement('div');
+    unitaryItem.classList.add('unitary-item');
+    const itemOrderedTitle = document.createElement('span');
+    itemOrderedTitle.classList.add('item-ordered-title');
+    itemOrderedTitle.textContent = product.name;
+    const amountAndPrice = document.createElement('div');
+    amountAndPrice.classList.add('amount-and-price');
+    const amount = document.createElement('span');
+    amount.classList.add('amount');
+    amount.textContent = product.quantity + 'x';
+    const unitaryPrice = document.createElement('span');
+    unitaryPrice.classList.add('unitary-price');
+    unitaryPrice.textContent = '@$' + product.price;
+    const itemCountPrice = document.createElement('span');
+    itemCountPrice.classList.add('price-per-product');
+    itemCountPrice.textContent = '$' + product.price * product.quantity;
+    const deleteItem = document.createElement('div');
+    deleteItem.classList.add('delete-cart');
+    amountAndPrice.append(amount, unitaryPrice, itemCountPrice);
+    unitaryItem.append(itemOrderedTitle, amountAndPrice);
+    itemOrderedAndPrice.append(unitaryItem, deleteItem);
+    fragment.append(itemOrderedAndPrice);
+    toAppendInCartElement.append(fragment);
+  });
+};
+
+const printContentInOrder = (array) => {
+  cartContent.forEach((product) => {
+    const fragment = document.createDocumentFragment();
+    const itemOrderedAndPrice = document.createElement('div');
+    itemOrderedAndPrice.classList.add('item-ordered-and-prices');
+    const unitaryItem = document.createElement('div');
+    unitaryItem.classList.add('unitary-item');
+    const itemOrderedTitle = document.createElement('span');
+    itemOrderedTitle.classList.add('item-ordered-title');
+    itemOrderedTitle.textContent = product.name;
+    const amountAndPrice = document.createElement('div');
+    amountAndPrice.classList.add('amount-and-price');
+    const amount = document.createElement('span');
+    amount.classList.add('amount');
+    amount.textContent = product.quantity + 'x';
+    const unitaryPrice = document.createElement('span');
+    unitaryPrice.classList.add('unitary-price');
+    unitaryPrice.textContent = '@$' + product.price;
+    const itemCountPrice = document.createElement('span');
+    itemCountPrice.classList.add('price-per-product');
+    itemCountPrice.textContent = '$' + product.price * product.quantity;
+    const deleteItem = document.createElement('div');
+    deleteItem.classList.add('delete-cart');
+    amountAndPrice.append(amount, unitaryPrice, itemCountPrice);
+    unitaryItem.append(itemOrderedTitle, amountAndPrice);
+    itemOrderedAndPrice.append(unitaryItem, deleteItem);
+    fragment.append(itemOrderedAndPrice);
+    toAppendInOrderElement.append(fragment);
+  });
+};
+
+const mainClick = (event) => {
+  const type = event.target.dataset.type;
+  if (!type) return;
+  if (type === 'button') {
+    insertInCart(event);
+  }
+  if (type === 'increase') {
+    incrementQuantity(event);
+  }
+  if (type === 'decrease') {
+    decrementQuantity(event);
+  }
+  updateTotal(cartContent);
+  updateTotalAmount(cartContent);
+  if (cartContent.length === 0) {
+    emptyCartElement.classList.remove('empty-cart-hidden');
+  } else {
+    emptyCartElement.classList.add('empty-cart-hidden');
+  }
+  toAppendInCartElement.innerHTML = '';
+  printContent(cartContent);
+  toAppendInOrderElement.innerHTML = '';
+  printContentInOrder(cartContent);
+};
+
+productsElement.addEventListener('click', mainClick);
 
 //abrir compra final
 const showModal = (event) => {
@@ -20,10 +184,6 @@ const hideModal = (event) => {
   modalElement.classList.add('hide-modal');
 };
 newOrderElement.addEventListener('click', hideModal);
-
-//añadir al carro
-
-let cartContent = [];
 
 // const addProductToCart = (event) => {
 //   const fragment = document.createDocumentFragment();
@@ -53,51 +213,3 @@ let cartContent = [];
 //   fragment.append(itemOrderedAndPrice);
 //   toAppendInCartElement.append(fragment);
 // };
-
-//aumentar cantidad
-
-// let toUpdateCart = [];
-
-// const increaseAmount = (event) => {
-//   toUpdateCart.forEach((element) => {
-//     if (event.target.dataset.name === element.name) {
-//       element.quantity += 1;
-//     }
-//   });
-// };
-// allIncreaseElements.forEach((increaseElement) => {
-//   increaseElement.addEventListener('click', increaseAmount);
-// });
-
-//mostrar botones de cantidad y añadir al carro
-// const showBuyQuantity = (event) => {
-//   event.target.nextElementSibling.classList.remove('remove-hidden-add-to-cart');
-//   event.target.nextElementSibling.children[1].textContent = 1;
-//   //addProductToCart(event);
-//   emptyCartElement.classList.add('empty-cart-hidden');
-//   let cartItem = {
-//     name: event.target.dataset.name,
-//     price: event.target.dataset.price,
-//     quantity: 0,
-//   };
-//   toUpdateCart.push(cartItem);
-//   console.log(toUpdateCart);
-// };
-// allAddToCartElements.forEach((addToCart) => {
-//   addToCart.addEventListener('click', showBuyQuantity);
-// });
-
-// //disminuir cantidad
-
-// const decreaseAmount = (event) => {
-//   event.target.nextElementSibling.textContent =
-//     Number(event.target.nextElementSibling.textContent) - 1;
-//   if (Number(event.target.nextElementSibling.textContent) <= 0) {
-//     event.target.parentElement.classList.add('remove-hidden-add-to-cart');
-//   }
-//   itemCount.pop();
-//   console.log(itemCount);
-// };
-// allDecreaseElements.forEach((decreaseElement) => {
-//   decreaseElement.addEventListener('click', decreaseAmount);
-// });
