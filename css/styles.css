@@ -504,8 +504,6 @@ body {
   margin-top: 24px;
   margin-inline: 24px;
   margin-bottom: 24px;
-  box-shadow: 0 0 100px 1000px#0000008d;
-  isolation: isolate;
 }
 
 .hide-modal {
@@ -514,19 +512,21 @@ body {
 
 @media screen and (width>768px) {
   .modal {
-    top: 20%;
-    left: 25%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
   }
 }
 
 @media screen and (width>1024px) {
   .modal {
-    left: 30%;
+    width: 592px;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
   }
-}
-
-.tiramisu cake {
-  background-color: #000;
 }
 
 .verification {

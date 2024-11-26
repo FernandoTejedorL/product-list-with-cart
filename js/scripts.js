@@ -162,7 +162,7 @@ const printContentInOrder = (array) => {
     itemOrderedAndPriceOrder.classList.add('item-ordered-and-prices-order');
     const orderedToAdd = document.createElement('div');
     orderedToAdd.classList.add('ordered-to-add');
-    const thumbnail = document.createElement('div');
+    const thumbnail = document.createElement('img');
     thumbnail.classList.add('thumbnail');
     const unitaryItem = document.createElement('div');
     unitaryItem.classList.add('unitary-item');
