@@ -19,6 +19,7 @@ let cartContent = [];
 
 const insertInCart = (event) => {
   event.target.nextElementSibling.classList.remove('remove-hidden-add-to-cart');
+  event.target.previousElementSibling.children[3].classList.add('selected-pic');
   const cartItem = {
     name: event.target.dataset.name,
     price: event.target.dataset.price,
@@ -46,9 +47,28 @@ const incrementQuantity = (event) => {
 
 //Eliminar del carro
 
-const removeFromCart = (name) => {
-  cartContent = cartContent.filter((product) => product.name !== name);
-};
+// const removeFromCart = (event) => {
+//   if (event.target.dataset.type === 'remove') {
+//     const name = event.target.dataset.name;
+//     cartContent = cartContent.map((product) => {
+//       if (product.name === name) {
+//         product.quantity = 0;
+//       }
+//       return product;
+//     });
+//     cartContent = cartContent.filter((element) => {
+//       return element.quantity !== 0;
+//     });
+//     return cartContent;
+//   }
+//   const allAddToCartElements = allAddToCartElements.map(
+//     (allAddToCartElement) => {
+//       if (event.target.dataset.name === name) {
+//         allAddToCartElement.classList.add('add-to-cart');
+//       }
+//     }
+//   );
+// };
 
 // Disminuir cantidad
 
@@ -63,6 +83,10 @@ const decrementQuantity = (event) => {
     }
     if (product.quantity === 0) {
       event.target.parentElement.classList.add('remove-hidden-add-to-cart');
+      event.target.parentElement.previousElementSibling.previousElementSibling.children[3].classList.remove(
+        'selected-pic'
+      );
+
       event.target.nextElementSibling.textContent = newQuantity + 1;
     }
     return product;
@@ -119,6 +143,8 @@ const printContent = (array) => {
     itemCountPrice.textContent = '$' + product.price * product.quantity;
     const deleteItem = document.createElement('div');
     deleteItem.classList.add('delete-cart');
+    deleteItem.dataset.type = 'remove';
+    deleteItem.dataset.name = product.name;
     amountAndPrice.append(amount, unitaryPrice, itemCountPrice);
     unitaryItem.append(itemOrderedTitle, amountAndPrice);
     itemOrderedAndPrice.append(unitaryItem, deleteItem);
@@ -132,8 +158,12 @@ const printContent = (array) => {
 const printContentInOrder = (array) => {
   cartContent.forEach((product) => {
     const fragment = document.createDocumentFragment();
-    const itemOrderedAndPrice = document.createElement('div');
-    itemOrderedAndPrice.classList.add('item-ordered-and-prices');
+    const itemOrderedAndPriceOrder = document.createElement('div');
+    itemOrderedAndPriceOrder.classList.add('item-ordered-and-prices-order');
+    const orderedToAdd = document.createElement('div');
+    orderedToAdd.classList.add('ordered-to-add');
+    const thumbnail = document.createElement('div');
+    thumbnail.classList.add('thumbnail');
     const unitaryItem = document.createElement('div');
     unitaryItem.classList.add('unitary-item');
     const itemOrderedTitle = document.createElement('span');
@@ -147,15 +177,14 @@ const printContentInOrder = (array) => {
     const unitaryPrice = document.createElement('span');
     unitaryPrice.classList.add('unitary-price');
     unitaryPrice.textContent = '@$' + product.price;
-    const itemCountPrice = document.createElement('span');
-    itemCountPrice.classList.add('price-per-product');
-    itemCountPrice.textContent = '$' + product.price * product.quantity;
-    const deleteItem = document.createElement('div');
-    deleteItem.classList.add('delete-cart');
-    amountAndPrice.append(amount, unitaryPrice, itemCountPrice);
+    const pricePerProductOrder = document.createElement('span');
+    pricePerProductOrder.classList.add('price-per-product-order');
+    pricePerProductOrder.textContent = '$' + product.price * product.quantity;
+    amountAndPrice.append(amount, unitaryPrice);
     unitaryItem.append(itemOrderedTitle, amountAndPrice);
-    itemOrderedAndPrice.append(unitaryItem, deleteItem);
-    fragment.append(itemOrderedAndPrice);
+    orderedToAdd.append(thumbnail, unitaryItem);
+    itemOrderedAndPriceOrder.append(orderedToAdd, pricePerProductOrder);
+    fragment.append(itemOrderedAndPriceOrder);
     toAppendInOrderElement.append(fragment);
   });
 };
@@ -183,8 +212,10 @@ const mainClick = (event) => {
   }
   toAppendInCartElement.innerHTML = '';
   printContent(cartContent);
+  //removeFromCart(event);
   toAppendInOrderElement.innerHTML = '';
   printContentInOrder(cartContent);
+  console.log(cartContent);
 };
 
 productsElement.addEventListener('click', mainClick);

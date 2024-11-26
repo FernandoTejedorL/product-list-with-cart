@@ -15,10 +15,10 @@
   <body>
     <main>
       <h1 class="header">Desserts</h1>
-      <div class="buttons-top">
-        <button class="button-top selected">Default</button>
-        <button class="button-top unselected">Name</button>
-        <button class="button-top unselected">Price</button>
+      <div id="filter-buttons" class="buttons-top">
+        <button data-filter="yes" class="button-top selected">Default</button>
+        <button data-filter="yes" class="button-top unselected">Name</button>
+        <button data-filter="yes" class="button-top unselected">Price</button>
       </div>
       <div id="products" class="dishes-and-cart">
         <div class="dishes-container">
@@ -587,15 +587,18 @@
         <h2 class="verification-title">Order Confirmed</h2>
         <span>We hope you enjoy your food!</span>
         <div id="to-add-in-order">
-          <!--<div class="item-ordered-and-prices">
-            <div class="unitary-item">
-              <span class="item-ordered-title">Classic Tiramisu</span>
-              <div class="amount-and-price">
-                <span class="amount">1x</span>
-                <span class="unitary-price">@$7.50</span>
+          <!--<div class="item-ordered-and-prices-order">
+            <div class="ordered-to-add">
+              <div class="thumbnail"></div>
+              <div class="unitary-item">
+                <span class="item-ordered-title">Classic Tiramisu</span>
+                <div class="amount-and-price">
+                  <span class="amount">1x</span>
+                  <span class="unitary-price">@$7.50</span>
+                </div>
               </div>
             </div>
-            <span class="price-per-product">$7.50</span>
+            <span class="price-per-product-order">$7.50</span>
           </div>-->
         </div>
         <div class="total-order">

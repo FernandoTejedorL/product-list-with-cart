@@ -120,7 +120,7 @@ body {
 
 @media (hover: hover) {
   .unselected:hover {
-    background-color: var(--rose500);
+    background-color: var(--rose400);
   }
 }
 
@@ -188,6 +188,10 @@ body {
     width: 250px;
     height: 240px;
   }
+}
+
+.selected-pic {
+  border: 2px solid var(--red);
 }
 
 .add-to-cart {
@@ -521,6 +525,10 @@ body {
   }
 }
 
+.tiramisu cake {
+  background-color: #000;
+}
+
 .verification {
   height: 48px;
   width: 48px;
@@ -537,6 +545,31 @@ body {
   font-weight: var(--fw-bold);
   color: var(--rose900);
   margin: 0;
+}
+
+.item-ordered-and-prices-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0 16px 0;
+  border-bottom: 1px solid var(--rose100);
+}
+
+.ordered-to-add {
+  display: flex;
+  gap: 16px;
+}
+
+.price-per-product-order {
+  font-size: var(--txt-size-s);
+  font-weight: var(--fw-semibold);
+  color: var(--rose500);
+}
+
+.thumbnail {
+  height: 48px;
+  width: 48px;
+  border-radius: 4px;
 }
 
 .pointer-none {
