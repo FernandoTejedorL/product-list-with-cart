@@ -13,6 +13,8 @@ const totalAmountElement = document.getElementById('total-amount');
 const toAppendInOrderElement = document.getElementById('to-add-in-order');
 const finalPriceElement = document.getElementById('final-price');
 
+// const productButtons = document.querySelectorAll(`[data-name="${name}"]`)
+
 //añadir al carro
 
 let cartContent = [];
@@ -24,8 +26,10 @@ const insertInCart = (event) => {
     name: event.target.dataset.name,
     price: event.target.dataset.price,
     quantity: 1,
+    thumb: event.target.dataset.thumb,
   };
   cartContent.push(cartItem);
+  console.dir(cartContent);
   return cartContent;
 };
 
@@ -164,6 +168,7 @@ const printContentInOrder = (array) => {
     orderedToAdd.classList.add('ordered-to-add');
     const thumbnail = document.createElement('img');
     thumbnail.classList.add('thumbnail');
+    thumbnail.src = `./assets/images/image-${product.thumb}-thumbnail.jpg`;
     const unitaryItem = document.createElement('div');
     unitaryItem.classList.add('unitary-item');
     const itemOrderedTitle = document.createElement('span');
